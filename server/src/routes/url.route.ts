@@ -1,6 +1,8 @@
 import express from "express";
+import { shortenUrl } from "../controllers/url.controller";
 
-// const router = express.Router();
-const app = express();
+const router = express.Router();
 
-app.post("/shorten");
+router.post("/shorten", shortenUrl);
+
+export default router;
