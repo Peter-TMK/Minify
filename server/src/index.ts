@@ -6,9 +6,9 @@ import router from "../src/routes/auth.route";
 const app = express();
 const PORT = process.env.PORT || 5555;
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
-app.use("/api", router);
+app.use("/api/auth", router);
 
 const DB_URL = "mongodb://localhost:27017/minify";
 
