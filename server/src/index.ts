@@ -1,14 +1,17 @@
 import express from "express";
 import mongoose from "mongoose";
-import router from "./routes/url.route";
+import cors from "cors";
+import router from "../src/routes/auth.route";
 
 const app = express();
 const PORT = process.env.PORT || 5555;
-app.use(express.json());
 
-app.use("/api/url", router);
+// app.use(cors());
+app.use(express.json());
+app.use("/api", router);
 
 const DB_URL = "mongodb://localhost:27017/minify";
+
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
