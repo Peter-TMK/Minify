@@ -1,7 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import router from "../src/routes/auth.route";
+import authRouter from "../src/routes/auth.route";
+import userRouter from "../src/routes/user.route";
 import dbConnect from "./config/db";
 
 const app = express();
@@ -9,7 +10,8 @@ const PORT = process.env.PORT || 5555;
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/auth", router);
+app.use("/api/auth", authRouter);
+app.use("/api", userRouter);
 
 dbConnect();
 

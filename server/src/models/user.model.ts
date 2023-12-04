@@ -24,6 +24,6 @@ userSchema.set("toJSON", {
   },
 });
 
-const UserModel = model<UserDocument>("Url", userSchema);
+const UserModel = model<UserDocument>("User", userSchema);
 
 export default UserModel;
