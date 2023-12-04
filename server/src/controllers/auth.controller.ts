@@ -74,3 +74,26 @@ export const loginUser = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Internal server error!" });
   }
 };
+
+// get user by Id
+export const getUserById = async (req: Request, res: Response) => {
+  const userId = req.params.userId;
+  const userInfo = await UserModel.findById(userId);
+
+  return res.json(userInfo);
+};
+
+// update user
+// export const updateUser = async (req: Request, res: Response) => {
+//   const userId = req.params.userId;
+//   const { fullName, email } = req.body;
+
+//   const newName = fullName;
+//   const newEmail = email;
+
+//   const userInfo = await UserModel.findById(userId);
+
+//   userInfo.fullName = newName;
+//   userInfo.email = newEmail;
+//   const userUpdate = await userInfo.save();
+// };

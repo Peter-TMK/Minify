@@ -4,15 +4,16 @@ import express, { Request, Response } from "express";
 // const express = require("express");
 // import UserModel from "../models/user.model";
 import { loginUser, registerUser } from "../controllers/auth.controller";
-const router = express.Router();
+// import { getAuthToken } from "../middlewares/auth.token";
+const authRouter = express.Router();
 
 // require("dotenv").config();
 // const PORT = process.env.PORT;
 
 // User registeration
-router.post("/register", registerUser);
+authRouter.post("/register", registerUser);
 
 // User login
-router.post("/login", loginUser);
+authRouter.post("/login", loginUser);
 
-export default router;
+export default authRouter;
