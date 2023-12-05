@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
-
+// import "dotenv/config";
+// require("dotenv").config();
+// import * as dotenv from "dotenv";
+// dotenv.config({ path: ".env" } as dotenv.DotenvConfigOptions);
+// mongoose.set({ strictQuery: false });
 const DB_URL = "mongodb://localhost:27017/minify";
 
 const dbConnect = async () => {

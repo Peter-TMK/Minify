@@ -6,7 +6,7 @@ import userRouter from "../src/routes/user.route";
 import dbConnect from "./config/db";
 
 const app = express();
-const PORT = process.env.PORT || 5555;
+const PORT = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
