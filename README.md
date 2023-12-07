@@ -31,7 +31,7 @@ Minify is a simple yet powerful URL shortener built using the MERN (MongoDB, Exp
 - Visit the frontend in your browser and start using the URL shortener.
 - Customize your URLs, generate QR codes, and view link analytics.
 
-## Folder structure (updated!)
+## Folder structure (NOT updated!)
 
 ```
 server/
