@@ -1,9 +1,3 @@
-// import express from "express";
-// import { shortenUrl, customizeUrl } from "../controllers/url.controller";
-
-// const router = express.Router();
-
-// router.post("/shorten", shortenUrl);
-// router.post("/customize", customizeUrl);
-
-// export default router;
+import express, { NextFunction, Request, Response } from "express";
+import URLModel from "../models/url.model";
+import { createUrl } from "../services/url.services";

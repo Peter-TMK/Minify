@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { getUserById } from "../controllers/auth.controller";
+import { getUser, getUserById } from "../controllers/auth.controller";
 import { verifyAccessToken } from "../middlewares/authToken";
 const userRouter = express.Router();
 
@@ -8,6 +8,7 @@ const userRouter = express.Router();
 
 // get user by Id
 userRouter.get("/:userId", getUserById);
+userRouter.get("/", getUser);
 
 // update user
 // userRouter.put("/:userId", updateUser);
