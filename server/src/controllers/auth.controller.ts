@@ -75,6 +75,13 @@ export const loginUser = async (req: Request, res: Response) => {
   }
 };
 
+// get user
+
+export const getUser = async (req: Request, res: Response) => {
+  const userInfo = await UserModel.find();
+  res.json(userInfo);
+};
+
 // get user by Id
 export const getUserById = async (req: Request, res: Response) => {
   const userId = req.params.userId;

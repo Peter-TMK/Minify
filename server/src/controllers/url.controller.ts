@@ -1,9 +1,8 @@
-// import express, { Request, Response } from "express";
+import express, { Request, Response } from "express";
 // import shortid from "shortid";
 
-// import URLModel from "../models/url.model";
+import URLModel from "../models/url.model";
 // import { generateShortURL } from "../services/url.services";
-// // import { request } from "http";
 
 // export const shortenUrl = async (req: Request, res: Response) => {
 //   try {

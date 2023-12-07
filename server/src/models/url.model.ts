@@ -3,19 +3,19 @@ import mongoose, { model, Document, Schema } from "mongoose";
 interface URLDocument extends Document {
   urlCode: string;
   originalLink: string;
-  userId: string;
+  name?: string;
   createdAt: Date;
   updatedAt: Date;
-  //   clicks: number;
+  clicks: number;
 }
 
 const urlSchema = new Schema<URLDocument>({
-  urlCode: { type: String, required: true },
-  originalLink: { type: String, unique: true },
-  userId: { type: String, unique: true, sparse: true },
+  urlCode: { type: String, required: true, unique: true },
+  originalLink: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
+  clicks: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
-  //   clicks: { type: Number, default: 0 },
 });
 
 urlSchema.set("toJSON", {
