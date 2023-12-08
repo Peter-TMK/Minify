@@ -1,8 +1,52 @@
 import express, { Request, Response } from "express";
-// import shortid from "shortid";
-
 import URLModel from "../models/url.model";
+import { generateUrl } from "../services/url.services";
+
 // import { generateShortURL } from "../services/url.services";
+
+export const createUrl = async (req: Request, res: Response) => {
+  const { originalLink } = req.body;
+  if (originalLink) {
+    try {
+      let urlData = await URLModel.findOne({ originalLink });
+      if (urlData) {
+        res.status(200).json(urlData);
+      } else {
+        const data = await generateUrl(req.body);
+        res.status(201).json(data);
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json("Internal server error!");
+    }
+  } else {
+    res.status(400).json("Missing parameters");
+  }
+};
+
+export const getUrl = async (req: Request, res: Response) => {
+  const urlData = await URLModel.find();
+  res.send(urlData);
+};
+
+export const getUrlCode = async (req: Request, res: Response) => {
+  const urlCode = req.params.urlCode;
+  const data = await URLModel.findOne({ urlCode });
+  data!.clicks += 1;
+  await data!.save();
+  // console.log(data?.clicks);
+
+  res.status(200).redirect(data!.originalLink);
+  // if (!urlCode) {
+  //   res.status(400).send("Bad request!");
+  // }
+  // try {
+  //   const data: any = await getUrlByUrlCode(urlCode);
+  //   res.status(201).redirect(data.originalLink);
+  // } catch (error) {
+  //   console.error(error);
+  // }
+};
 
 // export const shortenUrl = async (req: Request, res: Response) => {
 //   try {
