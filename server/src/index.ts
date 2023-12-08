@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import authRouter from "../src/routes/auth.route";
 import userRouter from "../src/routes/user.route";
+import urlRouter from "../src/routes/url.route";
 import dbConnect from "./config/db";
 
 const app = express();
@@ -17,10 +18,11 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-app.use("/api/auth", authRouter);
-app.use("/api", userRouter);
-
 dbConnect();
+
+app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
+app.use("/api/url", urlRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running at port ${PORT}`);
