@@ -1,11 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+// import ReactDOM from "react-dom/client";
 
 // import App from './App';
 
-const Dashboard = () => {
-  const a = "hello";
-  return <h2>{a}</h2>;
-};
+const Dashboard = () => (
+  // const dashboard = "dashboard";
+  <div className="dashboard">Dashboard</div>
+);
+// };
 
 export default Dashboard;
