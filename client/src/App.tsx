@@ -1,10 +1,12 @@
 import React from "react";
 // import logo from './logo.svg';
 // import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import MainRoutes from "./Routes";
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
       <RegisterForm />
       <h2>Login:</h2>
       <LoginForm />
+      <Dashboard />
+      <MainRoutes />
     </div>
     // <Router>
     //   <Routes>
