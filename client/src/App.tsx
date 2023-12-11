@@ -8,6 +8,7 @@ import "./index.css";
 // import Dashboard from "./pages/Dashboard/Dashboard";
 import MainRoutes from "./Routes";
 import Appbar from "./components/Appbar/Appbar";
+// import TextInput from "./components/TextInput/TextInput";
 
 const App = () => (
   <div>
@@ -16,6 +17,7 @@ const App = () => (
     <h2>Login:</h2>
     <LoginForm /> */}
     {/* <Dashboard /> */}
+    {/* <TextInput /> */}
     <Appbar />
     <MainRoutes />
   </div>
