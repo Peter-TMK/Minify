@@ -6,7 +6,7 @@ type Props = {
   placeholder?: string;
   onChange: (val: string | number) => void;
   type?: "text" | "password";
-  //   value: string;
+  value: string;
   //   style?: {};
 };
 
@@ -15,7 +15,7 @@ const TextInput: React.FC<Props> = ({
   placeholder,
   onChange,
   type = "text",
-  //   value,
+  value,
   //   style,
 }) => {
   return (
@@ -23,7 +23,7 @@ const TextInput: React.FC<Props> = ({
       {Boolean(label) && <label htmlFor="">{label}</label>}
       <input
         type={type}
-        // value={value}
+        value={value}
         placeholder={placeholder}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           onChange(e.target.value)

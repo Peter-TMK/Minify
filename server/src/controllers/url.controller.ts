@@ -36,7 +36,8 @@ export const getUrlCode = async (req: Request, res: Response) => {
   await data!.save();
   // console.log(data?.clicks);
 
-  res.status(200).redirect(data!.originalLink);
+  // res.status(200).redirect(data!.originalLink);
+  res.status(200).json(data);
   // if (!urlCode) {
   //   res.status(400).send("Bad request!");
   // }

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import axios from "axios";
+
+// import axios from "axios";
 // import ReactDOM from "react-dom/client";
 // import TextInput from "../../components/TextInput/TextInput";
 import Button from "../../components/Button/Button";
 // import App from './App';
 import "./Dashboard.css";
 import TextInput from "../../components/TextInput/TextInput";
+import httpClient from "../../Services/httpClient";
 
 const Dashboard = () => {
   const [showUrlAddView, setshowUrlAddView] = useState(false);
@@ -18,10 +20,7 @@ const Dashboard = () => {
       return;
     }
     try {
-      const { data } = await axios.post(
-        "http://localhost:5555/api/url",
-        urlPayload
-      );
+      const { data } = await httpClient.post("url", urlPayload);
       console.log("Data from backend", data);
       setShortUrl(`http://localhost:5555/api/url/${data.urlCode}`);
     } catch (error) {
@@ -47,6 +46,7 @@ const Dashboard = () => {
       <div className="dashboard__addNew">
         <TextInput
           label="Original URL"
+          value={urlPayload.originalLink}
           placeholder="https://google.com/api/v1"
           onChange={(val) =>
             setUrlPayload({ ...urlPayload, originalLink: val.toLocaleString() })
@@ -54,6 +54,7 @@ const Dashboard = () => {
         />
         <TextInput
           label="Name"
+          value={urlPayload.name}
           placeholder="Excel Academy"
           onChange={(val) =>
             setUrlPayload({ ...urlPayload, name: val.toLocaleString() })
