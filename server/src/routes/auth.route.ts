@@ -11,7 +11,7 @@ const authRouter = express.Router();
 // const PORT = process.env.PORT;
 
 // User registeration
-authRouter.post("/register", registerUser);
+authRouter.post("/signup", registerUser);
 
 // User login
 authRouter.post("/login", loginUser);

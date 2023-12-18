@@ -1,10 +1,14 @@
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import UserModel from "../models/user.model";
 // import shortid from "shortid";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-export const registerUser = async (req: Request, res: Response) => {
+export const registerUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const { fullName, email, password } = req.body;
 
@@ -37,7 +41,11 @@ export const registerUser = async (req: Request, res: Response) => {
   }
 };
 
-export const loginUser = async (req: Request, res: Response) => {
+export const loginUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const { email, password } = req.body;
 
@@ -66,6 +74,8 @@ export const loginUser = async (req: Request, res: Response) => {
 
     res.status(200).json({
       email: user.email,
+      fullname: user.fullName,
+      isLoggedIn: true,
       token,
       expiresIn: `${3600}s`, // 1 hour
     });
